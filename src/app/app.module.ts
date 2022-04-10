@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AlertModule } from './_alert';
 import { ShopbridgeInfoComponent } from './shopbridge-info/shopbridge-info.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShopbridgeInfoComponent
+    ShopbridgeInfoComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
