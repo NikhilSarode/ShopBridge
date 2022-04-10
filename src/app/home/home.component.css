@@ -9,3 +9,12 @@
     vertical-align: top;
     padding:10px 50px;
 }
+
+@media (max-width: 800px) {
+    .left-panel{
+        width:100%;
+    }
+    .right-panel{
+        width:100%;
+    } 
+}
