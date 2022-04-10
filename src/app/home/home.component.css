@@ -1,0 +1,11 @@
+.left-panel{
+    display: inline-block;
+    width: 50%;
+    padding:10px 50px;
+}
+.right-panel{
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding:10px 50px;
+}

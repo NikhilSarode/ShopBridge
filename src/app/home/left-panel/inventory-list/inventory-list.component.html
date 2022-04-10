@@ -1,0 +1,44 @@
+<div class="shopping-cart">
+
+
+<div class="item" *ngFor="let inventory of inventoryList" 
+ [ngClass]="{'highlightproduct': selectedInventory && inventory.productid===selectedInventory.productid}"
+ (click)="onInventorySelect(inventory)">
+
+  <div class="buttons" click-stop-propagation >
+    <span class="delete-btn" (click)="deleteInventory(inventory)"><i class="fa fa-trash"></i></span>
+  </div>
+
+  <div class="image">
+    <img src="assets/default_product.png" />
+  </div>
+
+  <div class="description">
+    <span (click)="onInventorySelect(inventory)">{{inventory.productname}}</span>
+    <span *ngIf="inventory.productdelicate==='Yes'"  class="delicate-info">Its a delicate product</span>
+    <span *ngIf="inventory.productdelicate==='No'" class="delicate-info">Its not a delicate product</span>
+  </div>
+
+  <div class="quantity">
+    <label>{{inventory.productquantity}} Items</label>
+    
+  </div>
+
+  <div class="total-price">Rs. {{inventory.productprice}}</div>
+
+</div>
+
+</div>
+ 
+<div class="paginationDiv"><pagination [totalPages]="getTotalPagesCount()" (pageNumberChanged)="onPageNumberChanged($event)"></pagination></div>
+
+<div style="position: absolute; top:350px; left:350px;">
+  <ngx-spinner
+      bdOpacity = 0.9
+      bdColor = "#f4f4f9"
+      size = "medium"
+      color = "#1010ee"
+      type = "ball-clip-rotate"
+      [fullScreen] = "false">
+  </ngx-spinner>
+</div>

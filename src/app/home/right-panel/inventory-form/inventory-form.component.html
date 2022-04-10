@@ -1,0 +1,56 @@
+<form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+  <div class="form-group" >
+    <label >Name</label>
+    <input type="text"  class="form-control"  placeholder="Enter product name" formControlName="productname">
+    <span style="color:red;" *ngIf="inventoryForm.get('productname').invalid && inventoryForm.get('productname').touched">This field is required!</span>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label >Description</label>
+    <textarea  type="text"  class="form-control"  placeholder="What the product is about"  formControlName="productdescription"></textarea>
+  </div>
+  <br>
+
+  <div class="form-group">
+    <label >Price</label>
+    <input type="number"  class="form-control" formControlName="productprice" >
+  </div>
+  <span style="color:red;" *ngIf="inventoryForm.get('productprice').invalid && inventoryForm.get('productprice').touched">This field is required!</span>
+  <br>
+
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number"   class="form-control" formControlName="productquantity" >
+  </div>
+  <span style="color:red" *ngIf="inventoryForm.get('productquantity').touched && inventoryForm.get('productquantity').invalid">Invalid quantity</span>
+  <br>
+
+  <div class="form-group">
+    <label style="margin-right:15px;">Delicate? </label>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio"  formControlName="productdelicate"  value="Yes">
+    <label class="form-check-label" for="inlineRadio1">Yes</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio"  formControlName="productdelicate"  value="No">
+    <label class="form-check-label" for="inlineRadio2">No</label>
+  </div>
+  </div>
+  <br>
+  <input type="hidden" formControlName="productid">
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="inventoryForm.invalid">Save</button>
+  <button style ="margin-left:20px;" type="button" class="btn btn-light"(click)="resetForm()">Clear</button>
+</form>
+
+<div style="position: absolute; top:350px; right:350px;">
+  <ngx-spinner
+      bdOpacity = 0.9
+      bdColor = "#f4f4f9"
+      size = "medium"
+      color = "#1010ee"
+      type = "ball-clip-rotate"
+      [fullScreen] = "false">
+  </ngx-spinner>
+</div>
